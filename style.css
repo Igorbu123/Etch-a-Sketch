@@ -6,4 +6,19 @@
 
 .playingBoard {
   display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+  border: 2px solid black;
+  height: 500px;
+  width: 500px;
+}
+
+.gridItem {
+  border: 1px solid grey;
+}
+
+.menu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
