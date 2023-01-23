@@ -1,5 +1,4 @@
-let gridItem = document.createElement("div");
-gridItem.className = "gridItem";
+let gridItems = document.getElementsByClassName("gridItem");
 
 const playingBoard = document.querySelector(".playingBoard");
 
@@ -7,11 +6,15 @@ const playingBoard = document.querySelector(".playingBoard");
 
 //Creates default 16x16 playing board//
 
-function createBoard(num) {
+function createBoard(size) {
   for (let i = 0; i < 256; i++) {
     let gridItem = document.createElement("div");
     gridItem.className = "gridItem";
-    playingBoard.appendChild(gridItem);
+    playingBoard.append(gridItem);
+
+    gridItem.addEventListener("mouseover", function () {
+      gridItem.style.backgroundColor = "black";
+    });
   }
 }
 
