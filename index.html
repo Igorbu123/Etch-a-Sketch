@@ -9,14 +9,19 @@
     <title>Etch-A-Sketch</title>
   </head>
   <body>
+    <header>
+      <h1>Etch-A-Sketch</h1>
+    </header>
     <div class="container">
-      <div class="playingBoard"></div>
+      <div id="playingBoard"></div>
     </div>
     <div class="menu">
       <button>Color</button>
-      <button>Random color</button>
-      <button>Reset board</button>
-      <input type="text" />
+      <button class="btn_Random">Random color</button>
+      <button class="btn_Reset">Reset board</button>
+      <label>Enter the Grid size</label><br />
+      <input type="text" id="submitValue" /><br />
+      <button type="button" id="submitButton">Submit</button>
     </div>
   </body>
 </html>
