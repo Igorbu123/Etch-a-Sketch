@@ -1,21 +1,45 @@
-let gridItems = document.getElementsByClassName("gridItem");
-
-const playingBoard = document.querySelector(".playingBoard");
+const btn_Reset = document.querySelector(".btn_Reset");
+const btn_random = document.querySelector(".btn_Random");
 
 //playingBoard.append(gridItem);
 
 //Creates default 16x16 playing board//
 
 function createBoard(size) {
-  for (let i = 0; i < 256; i++) {
+  let boardSize = size * size;
+
+  for (let i = 0; i < boardSize; i++) {
     let gridItem = document.createElement("div");
     gridItem.className = "gridItem";
+    document.getElementById(
+      "playingBoard"
+    ).style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+    document.getElementById(
+      "playingBoard"
+    ).style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
     playingBoard.append(gridItem);
 
     gridItem.addEventListener("mouseover", function () {
       gridItem.style.backgroundColor = "black";
     });
+
+    btn_Reset.addEventListener("click", function () {
+      gridItem.remove();
+    });
   }
 }
 
 createBoard();
+
+document.getElementById("submitButton").onclick = function () {
+  let size = document.getElementById("submitValue").value;
+
+  if (size < 2 || size > 100) {
+    window.alert("Please enter value between 1 and 100");
+  } else {
+    console.log(size);
+    //gridItem.remove();
+    createBoard(size);
+  }
+};
