@@ -1,9 +1,7 @@
 const btn_Reset = document.querySelector(".btn_Reset");
 const btn_random = document.querySelector(".btn_Random");
 
-//playingBoard.append(gridItem);
-
-//Creates default 16x16 playing board//
+//Creates board with size as input//
 
 function createBoard(size) {
   let boardSize = size * size;
@@ -35,11 +33,10 @@ createBoard();
 document.getElementById("submitButton").onclick = function () {
   let size = document.getElementById("submitValue").value;
 
-  if (size < 2 || size > 100) {
+  if (size < 2 || size > 100 || typeof size === "string") {
     window.alert("Please enter value between 1 and 100");
   } else {
     console.log(size);
-    //gridItem.remove();
     createBoard(size);
   }
 };
